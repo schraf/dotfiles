@@ -66,3 +66,8 @@ set undodir=~/.vim/undo        " Directory to store persistent undo files
 "------------------------------------------------------------------------------
 set foldmethod=indent          " Fold based on indentation
 set foldlevelstart=99          " Start with all folds open
+
+"------------------------------------------------------------------------------
+" Auto Commands
+"------------------------------------------------------------------------------
+autocmd BufWritePost *.go !gofmt -w %
