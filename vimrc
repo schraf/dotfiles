@@ -13,6 +13,7 @@ set wildmenu                   " Visual autocomplete for command-line completion
 set lazyredraw                 " Don't redraw screen during macros
 set showmatch                  " Briefly jump to matching bracket
 set visualbell                 " Use a visual bell instead of a beep
+set mouse=a                    " Enable mouse support
 
 "------------------------------------------------------------------------------
 " Filetype, Syntax, and Colors
@@ -24,7 +25,7 @@ syntax on                      " Enable syntax highlighting
 
 set termguicolors              " Enable 24-bit RGB colors for a better look
 set background=dark            " Use a dark background
-color desert                   " Set the colorscheme
+color base16-espresso          " Set the colorscheme
 
 "------------------------------------------------------------------------------
 " UI Appearance
@@ -68,6 +69,13 @@ set foldmethod=indent          " Fold based on indentation
 set foldlevelstart=99          " Start with all folds open
 
 "------------------------------------------------------------------------------
+" Plugins
+"------------------------------------------------------------------------------
+set rtp+=~/.fzf
+
+"------------------------------------------------------------------------------
 " Auto Commands
 "------------------------------------------------------------------------------
-autocmd BufWritePost *.go !gofmt -w %
+nnoremap <C-p> :FZF<CR>
+
+
