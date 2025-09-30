@@ -1,1 +1,1 @@
-brew install vim tmux fzf lazyfit fish
+brew install vim tmux fzf lazygit fish
