@@ -25,7 +25,7 @@ syntax on                      " Enable syntax highlighting
 
 set termguicolors              " Enable 24-bit RGB colors for a better look
 set background=dark            " Use a dark background
-color base16-espresso          " Set the colorscheme
+color base16-google-dark       " Set the colorscheme
 
 "------------------------------------------------------------------------------
 " UI Appearance
