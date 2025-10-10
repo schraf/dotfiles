@@ -44,7 +44,6 @@ make install
 | `vimrc` | Vim configuration with sensible defaults and backup settings |
 | `tmux.conf` | tmux configuration with plugins and better copy mode |
 | `starship.toml` | Modern shell prompt configuration |
-| `gitconfig` | Git configuration with aliases and delta integration |
 | `fzf.vim` | fzf integration for vim |
 | `base16/` | Base16 theming system for shell and vim |
 
@@ -68,10 +67,6 @@ make install
 - **Plugin management**: TPM for easy plugin installation
 - **Consistent theming**: Base16 integration
 
-### Git
-- **Delta integration**: Beautiful side-by-side diffs
-- **Comprehensive aliases**: Shortcuts for common git operations
-- **Color coding**: Syntax highlighting in diffs and logs
 
 ## Installation
 
@@ -104,7 +99,6 @@ cp vimrc ~/.vimrc
 cp tmux.conf ~/.tmux.conf
 cp config.fish ~/.config/fish/config.fish
 cp starship.toml ~/.config/starship.toml
-cp gitconfig ~/.gitconfig
 cp -R base16/base16-shell ~/.config/base16-shell
 cp base16/base16-vim/colors/*.vim ~/.vim/colors
 cp fzf.vim ~/.fzf/plugin/fzf.vim
@@ -198,9 +192,6 @@ cp ~/.config/fish/config.fish ~/.config/fish/config.fish.backup
 - Install TPM plugins: `prefix + I` in tmux
 - Verify tmux version: `tmux -V` (requires 1.7+)
 
-### Git Issues
-- Check delta installation: `which delta`
-- Verify git config: `git config --list`
 
 ## Directory Structure
 
@@ -212,7 +203,6 @@ dotfiles/
 ├── vimrc                # Vim configuration
 ├── tmux.conf            # tmux configuration
 ├── starship.toml        # Starship prompt configuration
-├── gitconfig            # Git configuration
 ├── fzf.vim              # fzf vim integration
 └── base16/              # Base16 theming
     ├── base16-shell/    # Shell themes

@@ -59,13 +59,6 @@ style = "red bold"
 symbol = "go "
 style = "cyan bold"
 
-# Memory usage
-[memory_usage]
-disabled = false
-threshold = 70
-symbol = "mem "
-style = "bold dimmed red"
-
 # Command duration
 [cmd_duration]
 min_time = 2_000

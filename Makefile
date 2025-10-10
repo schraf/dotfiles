@@ -96,7 +96,6 @@ copy-configs: setup-dirs
 	cp base16/base16-vim/colors/*.vim ~/.vim/colors
 	cp fzf.vim ~/.fzf/plugin
 	cp starship.toml ~/.config/starship.toml
-	cp gitconfig ~/.gitconfig
 
 # Install tmux plugin manager
 install-tpm:
@@ -119,7 +118,6 @@ clean:
 	@echo "  - ~/.fzf/plugin/fzf.vim"
 	@echo "  - ~/.tmux/plugins/tpm/"
 	@echo "  - ~/.config/starship.toml"
-	@echo "  - ~/.gitconfig"
 	@read -p "Are you sure? (y/N): " confirm && [ "$$confirm" = "y" ] || exit 1
 	rm -f ~/.vimrc
 	rm -f ~/.tmux.conf
@@ -129,5 +127,4 @@ clean:
 	rm -f ~/.fzf/plugin/fzf.vim
 	rm -rf ~/.tmux/plugins/tpm
 	rm -f ~/.config/starship.toml
-	rm -f ~/.gitconfig
 	@echo "Cleanup complete!"
