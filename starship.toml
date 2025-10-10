@@ -1,0 +1,72 @@
+# Starship prompt configuration
+# A fast, customizable, and universal prompt for any shell
+
+# Add a new line before the prompt
+add_newline = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+# Git branch
+[git_branch]
+symbol = " "
+truncation_length = 20
+truncation_symbol = "…"
+
+# Git status
+[git_status]
+conflicted = "="
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+up_to_date = "✓"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+# Directory
+[directory]
+style = "cyan bold"
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Node.js
+[nodejs]
+symbol = "⬢ "
+style = "green bold"
+
+# Python
+[python]
+symbol = "py "
+style = "yellow bold"
+
+# Rust
+[rust]
+symbol = "rs "
+style = "red bold"
+
+# Go
+[golang]
+symbol = "go "
+style = "cyan bold"
+
+# Memory usage
+[memory_usage]
+disabled = false
+threshold = 70
+symbol = "mem "
+style = "bold dimmed red"
+
+# Command duration
+[cmd_duration]
+min_time = 2_000
+format = "took [$duration](bold yellow) "

@@ -58,9 +58,9 @@ set softtabstop=4              " Set number of spaces for a tab in insert mode
 " Backup and Swap Files
 " Note: These directories must be created manually.
 "------------------------------------------------------------------------------
-set backupdir=~/.vim/backup    " Directory to store backup files
-set directory=~/.vim/swap      " Directory to store swap files
-set undodir=~/.vim/undo        " Directory to store persistent undo files
+set backupdir=~/.vim/backup//  " Directory to store backup files (// preserves directory structure)
+set directory=~/.vim/swap//    " Directory to store swap files (// preserves directory structure)
+set undodir=~/.vim/undo//      " Directory to store persistent undo files (// preserves directory structure)
 
 "------------------------------------------------------------------------------
 " Code Folding

@@ -55,27 +55,27 @@ endif
 # Install dependencies via brew (macOS)
 deps-macos:
 	@echo "Installing dependencies via brew (macOS)..."
-	brew install vim tmux fzf lazygit fish zoxide ripgrep fd
+	brew install vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr
 
 # Install dependencies via Linux package managers
 deps-linux:
 	@echo "Installing dependencies via $(PACKAGE_MANAGER) (Linux)..."
 ifeq ($(PACKAGE_MANAGER),apt)
 	sudo apt update
-	sudo apt install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find
+	sudo apt install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr
 	@echo "Note: fd-find provides the 'fd' command"
 else ifeq ($(PACKAGE_MANAGER),yum)
-	sudo yum install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find
+	sudo yum install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr
 	@echo "Note: fd-find provides the 'fd' command"
 else ifeq ($(PACKAGE_MANAGER),dnf)
-	sudo dnf install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find
+	sudo dnf install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr
 	@echo "Note: fd-find provides the 'fd' command"
 else ifeq ($(PACKAGE_MANAGER),pacman)
-	sudo pacman -S --noconfirm vim tmux fzf lazygit fish zoxide ripgrep fd
+	sudo pacman -S --noconfirm vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr
 else
 	@echo "Error: Unknown package manager: $(PACKAGE_MANAGER)"
 	@echo "Please install the following packages manually:"
-	@echo "  vim tmux fzf lazygit fish zoxide ripgrep fd"
+	@echo "  vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr"
 	@exit 1
 endif
 
@@ -95,6 +95,8 @@ copy-configs: setup-dirs
 	cp -R base16/base16-shell ~/.config/base16-shell
 	cp base16/base16-vim/colors/*.vim ~/.vim/colors
 	cp fzf.vim ~/.fzf/plugin
+	cp starship.toml ~/.config/starship.toml
+	cp gitconfig ~/.gitconfig
 
 # Install tmux plugin manager
 install-tpm:
@@ -116,6 +118,8 @@ clean:
 	@echo "  - ~/.vim/colors/"
 	@echo "  - ~/.fzf/plugin/fzf.vim"
 	@echo "  - ~/.tmux/plugins/tpm/"
+	@echo "  - ~/.config/starship.toml"
+	@echo "  - ~/.gitconfig"
 	@read -p "Are you sure? (y/N): " confirm && [ "$$confirm" = "y" ] || exit 1
 	rm -f ~/.vimrc
 	rm -f ~/.tmux.conf
@@ -124,4 +128,6 @@ clean:
 	rm -rf ~/.vim/colors
 	rm -f ~/.fzf/plugin/fzf.vim
 	rm -rf ~/.tmux/plugins/tpm
+	rm -f ~/.config/starship.toml
+	rm -f ~/.gitconfig
 	@echo "Cleanup complete!"
