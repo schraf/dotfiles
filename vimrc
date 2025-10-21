@@ -61,6 +61,8 @@ set softtabstop=4              " Set number of spaces for a tab in insert mode
 set backupdir=~/.vim/backup//  " Directory to store backup files (// preserves directory structure)
 set directory=~/.vim/swap//    " Directory to store swap files (// preserves directory structure)
 set undodir=~/.vim/undo//      " Directory to store persistent undo files (// preserves directory structure)
+set backup
+set backupext=.bak
 
 "------------------------------------------------------------------------------
 " Code Folding
@@ -76,6 +78,13 @@ set rtp+=~/.fzf
 "------------------------------------------------------------------------------
 " Auto Commands
 "------------------------------------------------------------------------------
+autocmd BufWritePre * let &bex = '-' .. strftime("%Y%m%d%H%M%S") .. '.bak'
+
+"------------------------------------------------------------------------------
+" Keyboard Shortcuts
+"------------------------------------------------------------------------------
 nnoremap <C-p> :FZF<CR>
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
 
 
