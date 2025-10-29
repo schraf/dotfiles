@@ -31,6 +31,8 @@ make install
 - **starship** - Modern shell prompt
 - **tldr** - Better man pages
 - **lazygit** - Terminal-based git UI
+- **lazydocker** - Terminal-based docker UI
+- **btop** - Better top
 
 ### Theming
 - **Base16** - Consistent color scheme across shell and vim
@@ -46,6 +48,7 @@ make install
 | `starship.toml` | Modern shell prompt configuration |
 | `fzf.vim` | fzf integration for vim |
 | `base16/` | Base16 theming system for shell and vim |
+| `btop.conf` | btop configuration with theme |
 
 ## Key Features
 
@@ -83,28 +86,6 @@ make install
 make deps          # Install dependencies only
 make copy-configs  # Copy configuration files only
 make install-tpm   # Install tmux plugin manager
-```
-
-### Manual Installation
-```bash
-# Install dependencies (macOS)
-brew install vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr
-
-# Install dependencies (Linux - Ubuntu/Debian)
-sudo apt update
-sudo apt install vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr
-
-# Copy configuration files
-cp vimrc ~/.vimrc
-cp tmux.conf ~/.tmux.conf
-cp config.fish ~/.config/fish/config.fish
-cp starship.toml ~/.config/starship.toml
-cp -R base16/base16-shell ~/.config/base16-shell
-cp base16/base16-vim/colors/*.vim ~/.vim/colors
-cp fzf.vim ~/.fzf/plugin/fzf.vim
-
-# Install tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 ## Aliases
@@ -200,6 +181,8 @@ dotfiles/
 ├── README.md
 ├── Makefile
 ├── config.fish          # Fish shell configuration
+├── btop.conf            # btop configuration
+├── btop.theme           # btop theme
 ├── vimrc                # Vim configuration
 ├── tmux.conf            # tmux configuration
 ├── starship.toml        # Starship prompt configuration

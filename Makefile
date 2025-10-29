@@ -55,27 +55,27 @@ endif
 # Install dependencies via brew (macOS)
 deps-macos:
 	@echo "Installing dependencies via brew (macOS)..."
-	brew install vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr
+	brew install vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker
 
 # Install dependencies via Linux package managers
 deps-linux:
 	@echo "Installing dependencies via $(PACKAGE_MANAGER) (Linux)..."
 ifeq ($(PACKAGE_MANAGER),apt)
 	sudo apt update
-	sudo apt install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr
+	sudo apt install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker
 	@echo "Note: fd-find provides the 'fd' command"
 else ifeq ($(PACKAGE_MANAGER),yum)
-	sudo yum install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr
+	sudo yum install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker
 	@echo "Note: fd-find provides the 'fd' command"
 else ifeq ($(PACKAGE_MANAGER),dnf)
-	sudo dnf install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr
+	sudo dnf install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker
 	@echo "Note: fd-find provides the 'fd' command"
 else ifeq ($(PACKAGE_MANAGER),pacman)
-	sudo pacman -S --noconfirm vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr
+	sudo pacman -S --noconfirm vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker
 else
 	@echo "Error: Unknown package manager: $(PACKAGE_MANAGER)"
 	@echo "Please install the following packages manually:"
-	@echo "  vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr"
+	@echo "  vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker"
 	@exit 1
 endif
 
@@ -85,6 +85,7 @@ setup-dirs:
 	mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo ~/.vim/colors
 	mkdir -p ~/.config/fish
 	mkdir -p ~/.fzf/plugin
+	mkdir -p ~/.config/btop/themes
 
 # Copy configuration files
 copy-configs: setup-dirs
@@ -96,6 +97,8 @@ copy-configs: setup-dirs
 	cp base16/base16-vim/colors/*.vim ~/.vim/colors
 	cp fzf.vim ~/.fzf/plugin
 	cp starship.toml ~/.config/starship.toml
+	cp btop.conf ~/.config/btop
+	cp btop.theme ~/.config/btop/themes
 
 # Install tmux plugin manager
 install-tpm:
@@ -118,6 +121,7 @@ clean:
 	@echo "  - ~/.fzf/plugin/fzf.vim"
 	@echo "  - ~/.tmux/plugins/tpm/"
 	@echo "  - ~/.config/starship.toml"
+	@echo "  - ~/.config/btop"
 	@read -p "Are you sure? (y/N): " confirm && [ "$$confirm" = "y" ] || exit 1
 	rm -f ~/.vimrc
 	rm -f ~/.tmux.conf
@@ -127,4 +131,5 @@ clean:
 	rm -f ~/.fzf/plugin/fzf.vim
 	rm -rf ~/.tmux/plugins/tpm
 	rm -f ~/.config/starship.toml
+	rm -rf ~/.config/btop
 	@echo "Cleanup complete!"
