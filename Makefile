@@ -55,27 +55,24 @@ endif
 # Install dependencies via brew (macOS)
 deps-macos:
 	@echo "Installing dependencies via brew (macOS)..."
-	brew install vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker
+	brew install vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker jq glow
 
 # Install dependencies via Linux package managers
 deps-linux:
 	@echo "Installing dependencies via $(PACKAGE_MANAGER) (Linux)..."
 ifeq ($(PACKAGE_MANAGER),apt)
 	sudo apt update
-	sudo apt install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker
-	@echo "Note: fd-find provides the 'fd' command"
+	sudo apt install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker jq glow
 else ifeq ($(PACKAGE_MANAGER),yum)
-	sudo yum install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker
-	@echo "Note: fd-find provides the 'fd' command"
+	sudo yum install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker jq glow
 else ifeq ($(PACKAGE_MANAGER),dnf)
-	sudo dnf install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker
-	@echo "Note: fd-find provides the 'fd' command"
+	sudo dnf install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker jq glow
 else ifeq ($(PACKAGE_MANAGER),pacman)
-	sudo pacman -S --noconfirm vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker
+	sudo pacman -S --noconfirm vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker jq glow
 else
 	@echo "Error: Unknown package manager: $(PACKAGE_MANAGER)"
 	@echo "Please install the following packages manually:"
-	@echo "  vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker"
+	@echo "  vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker jq glow"
 	@exit 1
 endif
 

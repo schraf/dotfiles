@@ -86,5 +86,11 @@ autocmd BufWritePre * let &bex = '-' .. strftime("%Y%m%d%H%M%S") .. '.bak'
 nnoremap <C-p> :FZF<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
+nnoremap <F4> :make clean<CR>
+nnoremap <F5> :make lint<CR>
+nnoremap <F6> :make test<CR>
+nnoremap <F7> :make build<CR>
+nnoremap <F8> :make debug<CR>
+nnoremap <F9> :make run<CR>
 
 

@@ -21,6 +21,7 @@ make install
 - **tmux** - Terminal multiplexer with plugins
 - **fzf** - Fuzzy finder for everything
 - **zoxide** - Smarter cd command
+- **glow** - Markdown terminal renderer
 
 ### Enhanced Tools
 - **bat** - Better cat with syntax highlighting
@@ -33,6 +34,7 @@ make install
 - **lazygit** - Terminal-based git UI
 - **lazydocker** - Terminal-based docker UI
 - **btop** - Better top
+- **jq** - Like sed for json data
 
 ### Theming
 - **Base16** - Consistent color scheme across shell and vim
