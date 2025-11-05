@@ -73,7 +73,7 @@ set foldlevelstart=99          " Start with all folds open
 "------------------------------------------------------------------------------
 " Plugins
 "------------------------------------------------------------------------------
-set rtp+=~/.fzf
+set rtp+=~/.vim/plugin
 
 "------------------------------------------------------------------------------
 " Auto Commands
@@ -86,6 +86,7 @@ autocmd BufWritePre * let &bex = '-' .. strftime("%Y%m%d%H%M%S") .. '.bak'
 nnoremap <C-p> :FZF<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
+nnoremap <C-s> :Rg<CR>
 nnoremap <F4> :make clean<CR>
 nnoremap <F5> :make lint<CR>
 nnoremap <F6> :make test<CR>

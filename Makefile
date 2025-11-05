@@ -79,9 +79,8 @@ endif
 # Create necessary directories
 setup-dirs:
 	@echo "Creating directories..."
-	mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo ~/.vim/colors
+	mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo ~/.vim/colors ~/.vim/plugin
 	mkdir -p ~/.config/fish
-	mkdir -p ~/.fzf/plugin
 	mkdir -p ~/.config/btop/themes
 
 # Copy configuration files
@@ -92,7 +91,8 @@ copy-configs: setup-dirs
 	cp config.fish ~/.config/fish
 	cp -R base16/base16-shell ~/.config/base16-shell
 	cp base16/base16-vim/colors/*.vim ~/.vim/colors
-	cp fzf.vim ~/.fzf/plugin
+	cp fzf.vim ~/.vim/plugin
+	cp vim-ripgrep.vim ~/.vim/plugin
 	cp starship.toml ~/.config/starship.toml
 	cp btop.conf ~/.config/btop
 	cp btop.theme ~/.config/btop/themes
@@ -115,7 +115,8 @@ clean:
 	@echo "  - ~/.config/fish/config.fish"
 	@echo "  - ~/.config/base16-shell/"
 	@echo "  - ~/.vim/colors/"
-	@echo "  - ~/.fzf/plugin/fzf.vim"
+	@echo "  - ~/.vim/plugin/fzf.vim"
+	@echo "  - ~/.vim/plugin/vim-ripgrep.vim"
 	@echo "  - ~/.tmux/plugins/tpm/"
 	@echo "  - ~/.config/starship.toml"
 	@echo "  - ~/.config/btop"
@@ -125,7 +126,8 @@ clean:
 	rm -f ~/.config/fish/config.fish
 	rm -rf ~/.config/base16-shell
 	rm -rf ~/.vim/colors
-	rm -f ~/.fzf/plugin/fzf.vim
+	rm -f ~/.vim/plugin/fzf.vim
+	rm -f ~/.vim/plugin/vim-ripgrep.vim
 	rm -rf ~/.tmux/plugins/tpm
 	rm -f ~/.config/starship.toml
 	rm -rf ~/.config/btop
