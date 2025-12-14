@@ -22,6 +22,7 @@ make install
 - **fzf** - Fuzzy finder for everything
 - **zoxide** - Smarter cd command
 - **glow** - Markdown terminal renderer
+- **aichat** - All-in-one LLM cli tool
 
 ### Enhanced Tools
 - **bat** - Better cat with syntax highlighting
