@@ -3,7 +3,6 @@
 #--==========================================================
 set -g fish_history_size 10000
 set -g fish_history_path ~/.local/share/fish/fish_history
-set -g fish_complete_path ~/.config/fish/completions
 
 #--==========================================================
 #--=== Source tool configs
