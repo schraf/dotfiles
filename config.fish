@@ -3,6 +3,7 @@
 #--==========================================================
 set -g fish_history_size 10000
 set -g fish_history_path ~/.local/share/fish/fish_history
+set -gx EDITOR vim
 
 #--==========================================================
 #--=== Source tool configs

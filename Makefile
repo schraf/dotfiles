@@ -41,7 +41,7 @@ help:
 	@echo "Package manager: $(PACKAGE_MANAGER)"
 
 # Install everything
-install: deps setup-dirs copy-configs install-tpm
+install: deps setup-dirs copy-configs install-tpm install-vimgo
 	@echo "Installation complete!"
 
 # Install dependencies (auto-detect OS)
@@ -55,24 +55,24 @@ endif
 # Install dependencies via brew (macOS)
 deps-macos:
 	@echo "Installing dependencies via brew (macOS)..."
-	brew install vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker jq glow
+	brew install vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker jq glow aichat opencode boxes
 
 # Install dependencies via Linux package managers
 deps-linux:
 	@echo "Installing dependencies via $(PACKAGE_MANAGER) (Linux)..."
 ifeq ($(PACKAGE_MANAGER),apt)
 	sudo apt update
-	sudo apt install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker jq glow aichat
+	sudo apt install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker jq glow aichat opencode boxes
 else ifeq ($(PACKAGE_MANAGER),yum)
-	sudo yum install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker jq glow aichat
+	sudo yum install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker jq glow aichat opencode boxes
 else ifeq ($(PACKAGE_MANAGER),dnf)
-	sudo dnf install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker jq glow aichat
+	sudo dnf install -y vim tmux fzf lazygit fish zoxide ripgrep fd-find bat eza git-delta starship tldr btop lazydocker jq glow aichat opencode boxes
 else ifeq ($(PACKAGE_MANAGER),pacman)
-	sudo pacman -S --noconfirm vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker jq glow aichat
+	sudo pacman -S --noconfirm vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker jq glow aichat opencode boxes
 else
 	@echo "Error: Unknown package manager: $(PACKAGE_MANAGER)"
 	@echo "Please install the following packages manually:"
-	@echo "  vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker jq glow aichat"
+	@echo "  vim tmux fzf lazygit fish zoxide ripgrep fd bat eza delta starship tldr btop lazydocker jq glow aichat opencode boxes"
 	@exit 1
 endif
 
@@ -96,6 +96,10 @@ copy-configs: setup-dirs
 	cp starship.toml ~/.config/starship.toml
 	cp btop.conf ~/.config/btop
 	cp btop.theme ~/.config/btop/themes
+	cp -R tabular/after ~/.vim
+	cp -R tabular/autoload ~/.vim
+	cp -R tabular/doc ~/.vim
+	cp -R tabular/plugin ~/.vim
 
 # Install tmux plugin manager
 install-tpm:
@@ -104,6 +108,15 @@ install-tpm:
 		git clone https://github.com/tmux-plugins/tpm $$HOME/.tmux/plugins/tpm; \
 	else \
 		echo "tmux plugin manager already installed"; \
+	fi
+
+# Install Vim-Go plugin
+install-vimgo:
+	@echo "Installing vim-go plugin..."
+	@if [ ! -d "$$HOME/.vim/pack/plugins/start/vim-go" ]; then \
+		git clone https://github.com/fatih/vim-go.git $$HOME/.vim/pack/plugins/start/vim-go; \
+	else \
+		echo "vim-go plugin already installed"; \
 	fi
 
 # Clean up installed files (use with caution)

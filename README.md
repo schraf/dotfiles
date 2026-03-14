@@ -23,6 +23,8 @@ make install
 - **zoxide** - Smarter cd command
 - **glow** - Markdown terminal renderer
 - **aichat** - All-in-one LLM cli tool
+- **opencode** - Interactive CLI agent
+- **boxes** - Draw boxes around text
 
 ### Enhanced Tools
 - **bat** - Better cat with syntax highlighting
@@ -52,6 +54,8 @@ make install
 | `fzf.vim` | fzf integration for vim |
 | `base16/` | Base16 theming system for shell and vim |
 | `btop.conf` | btop configuration with theme |
+| `vim-ripgrep.vim` | Ripgrep integration for vim |
+| `tabular/` | Text alignment plugin for vim |
 
 ## Key Features
 
@@ -65,6 +69,8 @@ make install
 - **Sensible defaults**: Modern vim configuration
 - **Better backup**: Preserves directory structure in backup/swap files
 - **fzf integration**: Fuzzy file finding with `<C-p>`
+- **Ripgrep support**: Fast searching with `:Rg`
+- **Go support**: Full Go development environment via vim-go
 - **Consistent theming**: Base16 Google Dark theme
 
 ### tmux
@@ -89,6 +95,7 @@ make install
 make deps          # Install dependencies only
 make copy-configs  # Copy configuration files only
 make install-tpm   # Install tmux plugin manager
+make install-vimgo # Install vim-go plugin
 ```
 
 ## Aliases
@@ -190,6 +197,8 @@ dotfiles/
 ├── tmux.conf            # tmux configuration
 ├── starship.toml        # Starship prompt configuration
 ├── fzf.vim              # fzf vim integration
+├── vim-ripgrep.vim      # vim ripgrep integration
+├── tabular/             # tabular vim plugin
 └── base16/              # Base16 theming
     ├── base16-shell/    # Shell themes
     └── base16-vim/      # Vim themes
