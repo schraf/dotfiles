@@ -41,7 +41,7 @@ help:
 	@echo "Package manager: $(PACKAGE_MANAGER)"
 
 # Install everything
-install: deps setup-dirs copy-configs install-tpm install-vimgo
+install: deps setup-dirs copy-configs install-tpm
 	@echo "Installation complete!"
 
 # Install dependencies (auto-detect OS)
@@ -79,27 +79,21 @@ endif
 # Create necessary directories
 setup-dirs:
 	@echo "Creating directories..."
-	mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo ~/.vim/colors ~/.vim/plugin
+	mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo ~/.vim/pack/bundle/start
 	mkdir -p ~/.config/fish
 	mkdir -p ~/.config/btop/themes
 
 # Copy configuration files
 copy-configs: setup-dirs
 	@echo "Copying configuration files..."
-	cp vimrc ~/.vimrc
+	cp vim/vimrc ~/.vimrc
 	cp tmux.conf ~/.tmux.conf
 	cp config.fish ~/.config/fish
 	cp -R base16/base16-shell ~/.config/base16-shell
-	cp base16/base16-vim/colors/*.vim ~/.vim/colors
-	cp fzf.vim ~/.vim/plugin
-	cp vim-ripgrep.vim ~/.vim/plugin
+	cp -R vim/pack ~/.vim/
 	cp starship.toml ~/.config/starship.toml
 	cp btop.conf ~/.config/btop
 	cp btop.theme ~/.config/btop/themes
-	cp -R tabular/after ~/.vim
-	cp -R tabular/autoload ~/.vim
-	cp -R tabular/doc ~/.vim
-	cp -R tabular/plugin ~/.vim
 
 # Install tmux plugin manager
 install-tpm:
@@ -110,15 +104,6 @@ install-tpm:
 		echo "tmux plugin manager already installed"; \
 	fi
 
-# Install Vim-Go plugin
-install-vimgo:
-	@echo "Installing vim-go plugin..."
-	@if [ ! -d "$$HOME/.vim/pack/plugins/start/vim-go" ]; then \
-		git clone https://github.com/fatih/vim-go.git $$HOME/.vim/pack/plugins/start/vim-go; \
-	else \
-		echo "vim-go plugin already installed"; \
-	fi
-
 # Clean up installed files (use with caution)
 clean:
 	@echo "Cleaning up installed files..."
@@ -127,9 +112,7 @@ clean:
 	@echo "  - ~/.tmux.conf"
 	@echo "  - ~/.config/fish/config.fish"
 	@echo "  - ~/.config/base16-shell/"
-	@echo "  - ~/.vim/colors/"
-	@echo "  - ~/.vim/plugin/fzf.vim"
-	@echo "  - ~/.vim/plugin/vim-ripgrep.vim"
+	@echo "  - ~/.vim/pack/bundle/"
 	@echo "  - ~/.tmux/plugins/tpm/"
 	@echo "  - ~/.config/starship.toml"
 	@echo "  - ~/.config/btop"
@@ -138,9 +121,7 @@ clean:
 	rm -f ~/.tmux.conf
 	rm -f ~/.config/fish/config.fish
 	rm -rf ~/.config/base16-shell
-	rm -rf ~/.vim/colors
-	rm -f ~/.vim/plugin/fzf.vim
-	rm -f ~/.vim/plugin/vim-ripgrep.vim
+	rm -rf ~/.vim/pack/bundle
 	rm -rf ~/.tmux/plugins/tpm
 	rm -f ~/.config/starship.toml
 	rm -rf ~/.config/btop

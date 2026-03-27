@@ -51,11 +51,9 @@ make install
 | `vimrc` | Vim configuration with sensible defaults and backup settings |
 | `tmux.conf` | tmux configuration with plugins and better copy mode |
 | `starship.toml` | Modern shell prompt configuration |
-| `fzf.vim` | fzf integration for vim |
+| `vim/` | Vim configuration and plugins |
 | `base16/` | Base16 theming system for shell and vim |
 | `btop.conf` | btop configuration with theme |
-| `vim-ripgrep.vim` | Ripgrep integration for vim |
-| `tabular/` | Text alignment plugin for vim |
 
 ## Key Features
 
@@ -95,7 +93,6 @@ make install
 make deps          # Install dependencies only
 make copy-configs  # Copy configuration files only
 make install-tpm   # Install tmux plugin manager
-make install-vimgo # Install vim-go plugin
 ```
 
 ## Aliases
@@ -190,18 +187,16 @@ cp ~/.config/fish/config.fish ~/.config/fish/config.fish.backup
 dotfiles/
 ├── README.md
 ├── Makefile
-├── config.fish          # Fish shell configuration
 ├── btop.conf            # btop configuration
 ├── btop.theme           # btop theme
-├── vimrc                # Vim configuration
-├── tmux.conf            # tmux configuration
+├── config.fish          # Fish shell configuration
 ├── starship.toml        # Starship prompt configuration
-├── fzf.vim              # fzf vim integration
-├── vim-ripgrep.vim      # vim ripgrep integration
-├── tabular/             # tabular vim plugin
+├── tmux.conf            # tmux configuration
+├── vim/
+│   ├── vimrc            # Vim configuration
+│   └── pack/            # Vim plugins and packages
 └── base16/              # Base16 theming
-    ├── base16-shell/    # Shell themes
-    └── base16-vim/      # Vim themes
+    └── base16-shell/    # Shell themes
 ```
 
 ## Contributing
