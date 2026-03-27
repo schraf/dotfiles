@@ -33,7 +33,6 @@ make install
 - **fd** - Better find command
 - **delta** - Better git diff viewer
 - **starship** - Modern shell prompt
-- **tldr** - Better man pages
 - **lazygit** - Terminal-based git UI
 - **lazydocker** - Terminal-based docker UI
 - **btop** - Better top
@@ -113,7 +112,6 @@ cat     # bat (syntax highlighted cat)
 ls      # eza (modern ls)
 find    # fd (better find)
 grep    # rg (ripgrep)
-man     # tldr (better man pages)
 ```
 
 ## Customization

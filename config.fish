@@ -25,7 +25,6 @@ alias cat "bat"
 alias ls "eza"
 alias find "fd"
 alias grep "rg"
-alias man "tldr"
 
 #--==========================================================
 #--=== Color Scheme
