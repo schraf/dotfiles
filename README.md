@@ -25,6 +25,8 @@ make install
 - **aichat** - All-in-one LLM cli tool
 - **opencode** - Interactive CLI agent
 - **boxes** - Draw boxes around text
+- **fastmod** - Fast partial replacement tool
+- **workmux** - Workflow tool for managing git worktrees
 
 ### Enhanced Tools
 - **bat** - Better cat with syntax highlighting

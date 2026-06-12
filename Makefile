@@ -1,6 +1,4 @@
 # Dotfiles Makefile
-# This Makefile replaces install.sh and mac_install.sh
-# Works on both macOS and Linux
 
 # Detect operating system
 UNAME_S := $(shell uname -s)
@@ -37,7 +35,7 @@ else ifneq ($(filter $(PACKAGE_MANAGER),yum dnf),)
     INSTALL_CMD := sudo $(PACKAGE_MANAGER) install -y
 endif
 
-.PHONY: help install deps setup-dirs copy-configs install-tpm clean
+.PHONY: help install deps setup-dirs copy-configs install-tpm install-workmux clean
 
 # Default target
 help:
@@ -46,14 +44,13 @@ help:
 	@echo "  deps         - Install dependencies (auto-detects OS and package manager)"
 	@echo "  setup-dirs   - Create necessary directories"
 	@echo "  copy-configs - Copy configuration files"
-	@echo "  install-tpm  - Install tmux plugin manager"
 	@echo "  clean        - Remove installed files (use with caution)"
 	@echo ""
 	@echo "Detected OS: $(OS)"
 	@echo "Package manager: $(PACKAGE_MANAGER)"
 
 # Install everything
-install: deps setup-dirs copy-configs install-tpm
+install: deps setup-dirs copy-configs install-tpm install-workmux
 	@echo "Installation complete!"
 
 # Install dependencies
@@ -93,6 +90,16 @@ install-tpm:
 	else \
 		echo "tmux plugin manager already installed"; \
 	fi
+
+# Install workmux
+install-workmux:
+	@echo "Installing workmux..."
+	@if command -v workmux >/dev/null 2>&1; then \
+		echo "workmux already installed ($$(command -v workmux))"; \
+	else \
+		curl -fsSL https://raw.githubusercontent.com/raine/workmux/main/scripts/install.sh | bash; \
+	fi
+	
 
 # Clean up installed files (use with caution)
 clean:
